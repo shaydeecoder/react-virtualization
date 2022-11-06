@@ -1,6 +1,6 @@
 import { List, AutoSizer } from "react-virtualized";
 import renderRow from "./components/renderRow";
-import { users } from "./data";
+import { users, cache } from "./data";
 import "./styles.css";
 
 const App = () => {
@@ -31,7 +31,15 @@ const App = () => {
     <div className="list">
       <AutoSizer>
         {({ width, height }) => (
-          <List width={width} height={height} rowHeight={rowHeight} rowRenderer={renderRow} rowCount={users.length} overscanRowCount={3} />
+          <List
+            width={width}
+            height={height}
+            deferredMeasurementCache={cache}
+            rowHeight={cache.rowHeight}
+            rowRenderer={renderRow}
+            rowCount={users.length}
+            overscanRowCount={3}
+          />
         )}
       </AutoSizer>
     </div>
