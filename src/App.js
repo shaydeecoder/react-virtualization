@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { List } from "react-virtualized";
+import renderRow from "./components/renderRow";
+import { users } from "./data";
+import "./styles.css";
 
-function App() {
+const App = () => {
+  const listHeight = 700;
+  const rowHeight = 80;
+  const rowWidth = 800;
+
+  // without react-virtualized
+  // const users = useCreateRecord(1000);
+  // return <div className="list">{users.map(renderRow)}</div>;
+
+  // with react-virtualized
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="list">
+      <List
+        width={rowWidth}
+        height={listHeight}
+        rowHeight={rowHeight}
+        rowRenderer={renderRow}
+        rowCount={users.length}
+        overscanRowCount={3}
+      />
     </div>
   );
-}
+};
 
 export default App;
