@@ -12,11 +12,11 @@ const generateRecord = (count) => {
       username: faker.internet.userName(),
       email: faker.internet.email(),
       bio: loremIpsum({
-        count: 1,
+        count: 2, // 1
         units: "sentences",
-        sentenceLowerBound: 4,
-        sentenceUpperBound: 8
-      })
+        sentenceLowerBound: 10, // 4
+        sentenceUpperBound: 100, // 8
+      }),
     });
   }
 
