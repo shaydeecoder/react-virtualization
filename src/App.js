@@ -4,9 +4,9 @@ import { users, cache } from "./data";
 import "./styles.css";
 
 const App = () => {
-  const listHeight = 700;
-  const rowHeight = 80;
-  const rowWidth = 800;
+  // const listHeight = 700;
+  // const rowHeight = 80;
+  // const rowWidth = 800;
 
   // without react-virtualized
   /* const users = useCreateRecord(1000);
